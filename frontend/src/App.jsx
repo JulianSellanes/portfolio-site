@@ -1,4 +1,4 @@
-// import "./App.css";
+import "./App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar.jsx';
@@ -15,7 +15,7 @@ export const App = () => {
     const toast = location.state?.toast
 
     return (
-        <div>
+        <div className="app">
             <Navbar />
 
             <div className="container">

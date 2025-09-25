@@ -1,0 +1,41 @@
+/* Phones */
+
+.footer {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.footer-top {
+    min-height: 16rem;
+
+    display: grid;
+    grid-template-columns: 32px 1fr 32px;
+}
+
+.footer-top .pillar {
+    background-image: url("/sprites/wood.png");
+    background-repeat: repeat-y;
+    background-size: 32px;
+}
+
+.footer-top .planks {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("/sprites/planks.png");
+    background-repeat: repeat;
+    background-size: 32px;
+
+    font-size: 1.3rem;
+    color: white;
+}
+
+.foundation {
+    height: 32px;
+
+    background-image: url("/sprites/stone.png");
+    background-repeat: repeat-x;
+    background-size: 32px;
+}
