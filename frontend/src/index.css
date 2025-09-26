@@ -6,9 +6,7 @@
    text-decoration: none;
    list-style: none;
    line-height: 1.5;
-   /* font-family: "Minecraft", sans-serif; */
-   /* font-family: "VT323"; */
-   font-family: "Press Start 2P", system-ui;
+   font-family: "Press Start 2P", monospace, system-ui;
 }
 
 :root {
@@ -41,6 +39,27 @@ html {
    scroll-behavior: smooth;
 }
 
+.block {
+    width: 32px;
+    height: 32px;
+    background-size: cover;
+    /* border: solid 1px white; */
+}
+
+.dirt { background-image: url('/sprites/dirt.png'); }
+.cobblestone { background-image: url('/sprites/cobblestone.png'); }
+.stone { background-image: url('/sprites/stone.png'); }
+.brick { background-image: url('/sprites/brick.png'); }
+.obsidian { background-image: url('/sprites/obsidian.png'); }
+.bedrock { background-image: url('/sprites/bedrock.png'); }
+
+.wood { background-image: url('/sprites/wood.png'); }
+.oakplanks { background-image: url('/sprites/oakplanks.png'); }
+.spruceplanks { background-image: url('/sprites/spruceplanks.png'); }
+.birchplanks { background-image: url('/sprites/birchplanks.png'); }
+
+
+
 /* *{box-sizing:border-box}
 html,body,#root{height:100%}
 body{
@@ -51,14 +70,13 @@ color: var(--ink);
 } */
 
 /* Pixel edges */
-.pixel-border{
+/* .pixel-border{
    border: 6px solid var(--stone);
    box-shadow: var(--shadow);
-}
+} */
 
 /* "Voxel" button */
-.btn{
-   /* font-family:'Press Start 2P', system-ui, monospace; */
+/* .btn{
    font-size:.8rem;
    letter-spacing:.5px;
    color:#fff; background:var(--accent);
@@ -67,26 +85,49 @@ color: var(--ink);
    display:inline-block; transform: translateY(0);
 }
 .btn:hover{ filter:brightness(1.08) }
-.btn:active{ transform: translateY(2px) }
+.btn:active{ transform: translateY(2px) } */
 
 
-.container{ max-width:1100px; margin:0 auto; padding:24px }
-.grid{
-display:grid; gap:20px;
-grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+/* .container{
+   max-width:1100px;
+   margin:0 auto;
+   padding:24px
 }
+.grid{
+   display:grid;
+   gap:20px;
+   grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+} */
 
 
 /* Nav */
-.nav{
-position:sticky; top:0; z-index:5; backdrop-filter: blur(6px);
-background: rgba(20,24,26,.75);
-border-bottom: 6px solid var(--stone);
+/* .nav{
+   position:sticky;
+   top:0;
+   z-index:5;
+   backdrop-filter: blur(6px);
+   background: rgba(20,24,26,.75);
+   border-bottom: 6px solid var(--stone);
 }
-.nav-inner{ display:flex; align-items:center; gap:16px; padding:14px 24px }
-.nav a{ color:var(--ink); text-decoration:none; font-size:1.05rem }
-.nav .spacer{ flex:1 }
-.nav .logo-wrap{ display:flex; align-items:center; gap:12px }
+.nav-inner{
+   display:flex;
+   align-items:center;
+   gap:16px;
+   padding:14px 24px
+}
+.nav a{
+   color:var(--ink);
+   text-decoration:none;
+   font-size:1.05rem
+}
+.nav .spacer {
+   flex:1
+}
+.nav .logo-wrap {
+   display:flex;
+   align-items:center;
+   gap:12px
+} */
 
 
 /* Footer */
@@ -94,19 +135,23 @@ border-bottom: 6px solid var(--stone);
 
 
 /* Cards */
-.card{
-background: #1a1f21; border:6px solid var(--stone); padding:18px; box-shadow: var(--shadow)
+/* .card{
+   background: #1a1f21; border:6px solid var(--stone); padding:18px; box-shadow: var(--shadow)
 }
 .card h3{ margin-top:0; font-family:'Press Start 2P', monospace; font-size:1rem }
-.card img{ width:100%; height:160px; object-fit:cover; border:4px solid #111 }
+.card img{ width:100%; height:160px; object-fit:cover; border:4px solid #111 } */
 
 
 /* Headings */
-.h1{
-/* font-family:'Press Start 2P', monospace; */
-font-size:1.4rem; margin:12px 0 20px 0;
+/* .h1{
+   font-size:1.4rem;
+   margin:12px 0 20px 0;
 }
-.sub{ opacity:.85; line-height:1.5; font-size:1.15rem }
+.sub{
+   opacity:.85;
+   line-height:1.5;
+   font-size:1.15rem
+} */
 
 
 /* Timeline (Education) */
@@ -116,15 +161,19 @@ font-size:1.4rem; margin:12px 0 20px 0;
 
 
 /* Contact */
-.form{ display:grid; gap:14px; max-width:720px }
+.form{
+   display:grid;
+   gap:14px;
+   max-width:720px
+}
 .input, .textarea{
-width:100%; background:#0f1315; color:var(--ink);
-border:4px solid var(--stone); padding:12px 14px; font-size:1.05rem;
+   width:100%; background:#0f1315; color:var(--ink);
+   border:4px solid var(--stone); padding:12px 14px; font-size:1.05rem;
 }
 .textarea{ min-height:120px; resize:vertical }
 
 
 /* Toast */
 .toast{
-position: fixed; right: 20px; bottom: 20px; background: #0b3410; border: 4px solid #195a21; padding: 12px 16px; box-shadow: var(--shadow);
+   position: fixed; right: 20px; bottom: 20px; background: #0b3410; border: 4px solid #195a21; padding: 12px 16px; box-shadow: var(--shadow);
 }

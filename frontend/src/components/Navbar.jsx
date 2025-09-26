@@ -1,34 +1,51 @@
-// import "./Navbar.css";
+import "./Navbar.css";
 import { useEffect, useState } from "react";
-import { Link, NavLink } from 'react-router-dom'
-import { Logo } from './Logo.jsx'
-
-const linkStyle = ({isActive})=>({
-    textDecoration:'none',
-    fontFamily:'Press Start 2P, monospace',
-    fontSize:'.8rem',
-    borderBottom: isActive ? '4px solid #4CAF50' : '4px solid transparent',
-    padding:'8px 10px',
-})
+import { Link, NavLink } from 'react-router-dom';
+import { calcCols, getOffsetForWidth, makeRow } from "../utils/rowMaker.jsx";
+import { Logo } from './Logo.jsx';
 
 export const Navbar = () => {
+    const [cols, setCols] = useState(calcCols(getOffsetForWidth(window.innerWidth)));
+    
+    useEffect(() => {
+        const onResize = () => setCols(calcCols(getOffsetForWidth(window.innerWidth)));
+        window.addEventListener("resize", onResize);
+
+        return () => window.removeEventListener("resize", onResize);
+    }, []);
+
+    const woodRow = makeRow(cols, "oakplanks", {
+        special: (i, cols) => (i === 0 || i === cols - 1 ? "wood" : null),
+    });
+
+    const cobblestoneRow = makeRow(cols, "cobblestone");
 
     return (
         <div className="nav">
-            <div className="nav-inner container">
-                <Link to="/" className="logo-wrap" aria-label="Home">
-                    <Logo size={34}/>
-                    <span style={{fontFamily:'Press Start 2P, monospace'}}>JULIÁN</span>
-                </Link>
-                
-                <div className="spacer" />
+            <div className="nav-inner">
+                <div className="nav-grid" style={{ gridTemplateColumns: `repeat(${cols}, 32px)` }}>
+                    {woodRow}
+                    {woodRow}
+                    {woodRow}
+                    {cobblestoneRow}
+                </div>
 
-                <NavLink to="/" style={linkStyle}>Home</NavLink>
-                <NavLink to="/about" style={linkStyle}>About</NavLink>
-                <NavLink to="/projects" style={linkStyle}>Projects</NavLink>
-                <NavLink to="/education" style={linkStyle}>Education</NavLink>
-                <NavLink to="/services" style={linkStyle}>Services</NavLink>
-                <NavLink to="/contact" style={linkStyle}>Contact</NavLink>
+                <div className="nav-content">
+                    <Link to="/" className="logo">
+                        <Logo size={72}/>
+                        <span>JULIAN</span>
+                    </Link>
+
+                    <div className="nav-links-group">
+                        <NavLink to="/" className={"nav-link"}>Home</NavLink>
+                        <NavLink to="/about" className={"nav-link"}>About</NavLink>
+                        <NavLink to="/projects" className={"nav-link"}>Projects</NavLink>
+                        <NavLink to="/education" className={"nav-link"}>Education</NavLink>
+                        <NavLink to="/services" className={"nav-link"}>Services</NavLink>
+                        <NavLink to="/contact" className={"nav-link"}>Contact</NavLink>
+                    </div>
+                    
+                </div>
             </div>
         </div>
     );

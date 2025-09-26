@@ -18,13 +18,7 @@ export const App = () => {
         <div className="app">
             <Navbar />
 
-            <div className="container">
-                {toast && (
-                    <div className="toast">
-                        <strong>Thanks!</strong> {toast}
-                    </div>
-                )}
-
+            <main>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
@@ -34,7 +28,7 @@ export const App = () => {
                     <Route path="/contact" element={<Contact />} />
                     <Route path="*" element={<Home />} />
                 </Routes>
-            </div>
+            </main>
 
             <Footer />
         </div>
