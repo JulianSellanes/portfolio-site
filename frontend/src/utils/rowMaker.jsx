@@ -11,6 +11,20 @@ export function getOffsetForWidth(w) {
     return bp ? bp.offset : 0;
 }
 
+const rowBreakpoints = [
+    { min: 0, max: 479, rows: 40 },
+    { min: 480, max: 799, rows: 38 },
+    { min: 800, max: 959, rows: 26 },
+    { min: 960, max: 1279, rows: 26 },
+    { min: 1280, max: Infinity, rows: 14 },
+];
+
+export function getRowsForWidth(w) {
+    const bp = rowBreakpoints.find(b => w >= b.min && w <= b.max);
+    console.log(bp);
+    return bp ? bp.rows : 10;
+}
+
 export function calcCols(offset = 0) {
     const w = window.innerWidth;
     return Math.floor(w / 32) - offset;

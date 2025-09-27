@@ -10,7 +10,6 @@ export const Navbar = () => {
     useEffect(() => {
         const onResize = () => setCols(calcCols(getOffsetForWidth(window.innerWidth)));
         window.addEventListener("resize", onResize);
-
         return () => window.removeEventListener("resize", onResize);
     }, []);
 
@@ -33,7 +32,6 @@ export const Navbar = () => {
                 <div className="nav-content">
                     <Link to="/" className="logo">
                         <Logo size={72}/>
-                        <span>JULIAN</span>
                     </Link>
 
                     <div className="nav-links-group">

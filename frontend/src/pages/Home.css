@@ -26,7 +26,7 @@
     display: contents;
 }
 
-.panel-content {
+.home-content {
     position: absolute;
     top: 0;
     left: 0;
@@ -39,61 +39,25 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    
-    /* text-align: center; */
-    /* color: white; */
-    /* text-shadow: 2px 2px 0 #000; */
 }
 
-.cards-panel {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2rem;
-}
-
-
-
-.home-grid {
-    display: grid;
-    grid-auto-rows: 32px;
-}
-
-.home-content {
+.home-content-cards {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-
-    /* display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center; */
-
-    /* font-size: 1.3rem; */
-    /* color: white; */
-    /* text-shadow: 2px 2px 0 #000; */
-}
-
-.home-block {
-    padding: 2rem 0;
+    padding: 1rem 0;
 
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: center;
-    gap: 3rem;
-
-    /* background-image: url("/sprites/spruceplanks.png");
-    background-repeat: repeat;
-    background-size: 32px; */
-
-    /* background-color: blue; */
+    gap: 2rem;
 }
 
-.home-block h3 {
-    padding: 0 5rem;
+.home-content h3 {
+    /* padding: 0 5rem; */
     line-height: 2;
     font-size: 1rem;
 }
@@ -103,6 +67,8 @@
     flex-flow: row nowrap;
     gap: 2rem;
 }
+
+
 
 .green-bttn {
     display: inline-block;

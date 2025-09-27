@@ -5,7 +5,7 @@
    overscroll-behavior: none;
    text-decoration: none;
    list-style: none;
-   line-height: 1.5;
+   line-height: 1.5rem;
    font-family: "Press Start 2P", monospace, system-ui;
 }
 
@@ -38,25 +38,6 @@ html {
    font-size: 62.5%;
    scroll-behavior: smooth;
 }
-
-.block {
-    width: 32px;
-    height: 32px;
-    background-size: cover;
-    /* border: solid 1px white; */
-}
-
-.dirt { background-image: url('/sprites/dirt.png'); }
-.cobblestone { background-image: url('/sprites/cobblestone.png'); }
-.stone { background-image: url('/sprites/stone.png'); }
-.brick { background-image: url('/sprites/brick.png'); }
-.obsidian { background-image: url('/sprites/obsidian.png'); }
-.bedrock { background-image: url('/sprites/bedrock.png'); }
-
-.wood { background-image: url('/sprites/wood.png'); }
-.oakplanks { background-image: url('/sprites/oakplanks.png'); }
-.spruceplanks { background-image: url('/sprites/spruceplanks.png'); }
-.birchplanks { background-image: url('/sprites/birchplanks.png'); }
 
 
 
@@ -155,9 +136,9 @@ color: var(--ink);
 
 
 /* Timeline (Education) */
-.timeline{ border-left:6px solid var(--accent-dark); padding-left:18px }
+/* .timeline{ border-left:6px solid var(--accent-dark); padding-left:18px }
 .timeline .item{ margin:18px 0 }
-.timeline .date{ color:#9bd3a4 }
+.timeline .date{ color:#9bd3a4 } */
 
 
 /* Contact */

@@ -1,0 +1,71 @@
+.about {
+    position: relative;
+}
+
+.about-inner {
+    position: relative;
+}
+
+.block-panel {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+
+    display: grid;
+    grid-auto-rows: 32px;
+}
+
+.panel-row {
+    display: contents;
+}
+
+.about-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem 6rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: red; */
+}
+
+.about-img {
+    /* width: 100%; */
+    height: 20rem;
+    object-fit: cover;
+
+    /* border: 32px solid transparent;
+    border-image-source: url("/sprites/obsidian.png");
+    border-image-slice: 32 fill;
+    border-image-width: 32px;
+    border-image-repeat: repeat; */
+}
+
+.about-group {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    /* background-color: blue; */
+}
+
+.about-title {
+    font-size: 1.2rem;
+}
+
+.about-text {
+    padding: 0 5rem 0 9rem;
+
+    font-size: 0.9rem;
+    line-height: 2rem;
+
+    /* background-color: red; */
+}
