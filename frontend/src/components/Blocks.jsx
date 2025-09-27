@@ -1,29 +1,46 @@
 import "./Blocks.css";
 import { useEffect, useRef, useState } from "react";
-import { calcCols, getOffsetForWidth, makeRow } from "./utils/rowMaker.jsx";
-import { useAutoRows } from "./utils/useAutoRows.js";
+import { calcCols } from "../utils/getNeededCols.js";
+import { makeRow } from "../utils/rowsMaker.jsx";
+import { useNeededRows } from "../utils/useNeededRows.js";
 
 const BLOCK = 32;
 
-export const Blocks = ({ rowsConfig = [], repeatIndex = null, children }) => {
-    const [cols, setCols] = useState(calcCols(getOffsetForWidth(window.innerWidth)));
+export const Blocks = ({ rowsConfig = [], repeatIndex = null, fixedCols = null, fixedRows = null, children }) => {
+    const [autoCols, setAutoCols] = useState(calcCols(window.innerWidth));
     const contentRef = useRef(null);
 
     useEffect(() => {
+        if (fixedCols != null) return;
+
         const update = () => {
-            setCols(calcCols(getOffsetForWidth(window.innerWidth)));
+            setAutoCols(calcCols(window.innerWidth));
         };
 
         update();
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
-    }, []);
+    }, [fixedCols]);
 
-    const neededRows = useAutoRows(contentRef, { block: 32, min: rowsConfig.length || 1 });
+    const cols = fixedCols ?? autoCols;
+    const autoRows = useNeededRows(contentRef, { block: BLOCK, min: rowsConfig.length || 1 });
+    const neededRows = fixedRows ?? autoRows;
     const rIndex = repeatIndex ?? 0;
-    const normalizedRows = rowsConfig.map((row) =>
-        typeof row === "string" ? (cols) => makeRow(cols, row) : row
-    );
+    const normalizedRows = rowsConfig.map((row) => {
+        if (typeof row === "string") {
+            // Simple string → normal row
+            return (cols) => makeRow(cols, row);
+        } else if (typeof row === "function") {
+            // Already a function → just use it
+            return row;
+        } else if (typeof row === "object" && row.type) {
+            // Object with type + special
+            return (cols) => makeRow(cols, row.type, row);
+        } else {
+            console.warn(`Invalid row config: ${row}`);
+            return () => null;
+        }
+    });
     
     let topRows = normalizedRows.slice(0, rIndex);     // rows before repeat
     const repeatRow = normalizedRows[rIndex];          // row to repeat

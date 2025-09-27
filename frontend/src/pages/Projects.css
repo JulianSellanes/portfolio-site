@@ -1,40 +1,14 @@
-.projects {
-    position: relative;
-}
-
-.projects-inner {
-    position: relative;
-}
-
-.block-panel {
-    position: relative;
-    width: fit-content;
-    margin: 0 auto;
-
-    display: grid;
-    grid-auto-rows: 32px;
-}
-
-.panel-row {
-    display: contents;
-}
-
 .projects-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 4rem;
+    padding: 3rem;
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    gap: 4rem;
+    gap: 3rem;
 }
 
-.projects-content-cards {
+.projects-cards {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;

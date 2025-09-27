@@ -1,50 +1,18 @@
-.about {
-    position: relative;
-}
-
-.about-inner {
-    position: relative;
-}
-
-.block-panel {
-    position: relative;
-    width: fit-content;
-    margin: 0 auto;
-
-    display: grid;
-    grid-auto-rows: 32px;
-}
-
-.panel-row {
-    display: contents;
-}
-
 .about-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 2rem 6rem;
+    padding: 3rem 6rem;
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column-reverse nowrap;
     justify-content: center;
     align-items: center;
-
-    /* background-color: red; */
+    gap: 2rem;
 }
 
 .about-img {
-    /* width: 100%; */
-    height: 20rem;
+    padding: 1.6rem;
+    width: 100%;
+    height: auto;
     object-fit: cover;
-
-    /* border: 32px solid transparent;
-    border-image-source: url("/sprites/obsidian.png");
-    border-image-slice: 32 fill;
-    border-image-width: 32px;
-    border-image-repeat: repeat; */
 }
 
 .about-group {
@@ -52,8 +20,7 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-
+    gap: 3rem;
     /* background-color: blue; */
 }
 
@@ -62,10 +29,36 @@
 }
 
 .about-text {
-    padding: 0 5rem 0 9rem;
+    /* padding: 0 5rem 0 9rem; */
 
     font-size: 0.9rem;
-    line-height: 2rem;
+    line-height: 2;
 
     /* background-color: red; */
+}
+
+/* Small tablets */
+
+@media screen and (min-width: 480px) {
+
+}
+
+/* Large tablets */
+
+@media screen and (min-width: 768px) {
+    .about-content {
+        flex-flow: row nowrap;
+    }
+}
+
+/* Laptops */
+
+@media screen and (min-width: 1024px) {
+
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1200px) {
+
 }

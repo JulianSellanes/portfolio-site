@@ -34,6 +34,38 @@ main {
     flex: 1;
 }
 
+.empty-space {
+    height: 3.2rem;
+}
+
+.green-bttn {
+    display: inline-block;
+    padding: 1.4rem 1.8rem; 
+
+    border: 4px solid #1f5f22;
+    box-shadow: 0 4px 0 #0f2e12, 0 4px 8px rgba(0, 0, 0, 0.4);
+
+    background-image: url("/sprites/green.png");
+    background-repeat: repeat;
+    background-size: 32px;
+
+    font-size: 1rem;
+    color: white;
+    /* text-align: center; */
+    cursor: pointer;
+
+    transform: translateY(0);
+}
+
+.green-bttn:hover {
+    filter: brightness(1.08);
+}
+
+.green-bttn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #0f2e12, 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
 .pixels {
     width: 100%;
     /* background-color: green; */

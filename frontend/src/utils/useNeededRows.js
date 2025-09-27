@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useAutoRows(ref, { block = 32, min = 1, extra = 0 } = {}) {
+export function useNeededRows(ref, { block = 32, min = 1, extra = 0 } = {}) {
     const [rows, setRows] = useState(min);
 
     useEffect(() => {

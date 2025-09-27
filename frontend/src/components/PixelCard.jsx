@@ -1,31 +1,14 @@
 import "./PixelCard.css";
-import { useEffect, useState } from "react";
-import { calcCols, makeRow } from "../utils/rowMaker.jsx";
+import { Blocks } from "./Blocks.jsx";
 
-export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref }) => {
-
-    const [cols, setCols] = useState(10);
-    const [rows, setRows] = useState(14);
-
-    const topRow = makeRow(cols, "obsidian");
-    const bottomRow = makeRow(cols, "obsidian");
+export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, fixedCols = 10, fixedRows = null }) => {
+    const middleRows = { 
+        type: "stone", 
+        special: (i, cols) => (i === 0 || i === cols - 1 ? "obsidian" : null),
+    }
 
     return (
-        <div className="pixel-card">
-            <div className="card-grid" style={{ gridTemplateColumns: `repeat(${cols}, 32px)` }}>
-                {topRow}
-                {
-                    Array.from({ length: rows - 2 }, (_, r) => (
-                        <div key={`row-${r}`} className="card-row">
-                            {makeRow(cols, "cobblestone", {
-                                special: (i, cols) => (i === 0 || i === cols - 1 ? "obsidian" : null),
-                            })}
-                        </div>
-                    ))
-                }
-                {bottomRow}
-            </div>
-
+        <Blocks rowsConfig={["obsidian", middleRows, "obsidian"]} repeatIndex={1} fixedCols={fixedCols} fixedRows={fixedRows}>
             <div className="card-content">
                 {img && <img className="card-img" src={img} />}
                 <h4 className="card-title">{title}</h4>
@@ -45,20 +28,6 @@ export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref }
                     <a className="green-bttn" href={ctaHref} target="_blank" rel="noreferrer">{ctaText || "View"}</a>
                 )}
             </div>
-        </div>
-
-        // <div className="pixel-card">
-        //     {img && <img src={img} />}
-
-        //     <h3>{title}</h3>
-
-        //     {subtitle && <p className="subtitle">{subtitle}</p>}
-
-        //     {children}
-
-        //     {ctaHref && (
-        //         <a className="green-bttn" href={ctaHref} target="_blank" rel="noreferrer">{ctaText || "View"}</a>
-        //     )}
-        // </div>
-    )
+        </Blocks>
+    );
 }

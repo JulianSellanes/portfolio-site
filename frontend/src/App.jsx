@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from 'react-router-dom';
+import { Blocks } from "./components/Blocks.jsx";
 import { Navbar } from './components/Navbar.jsx';
 import { Footer } from './components/Footer.jsx';
 import { Home } from './pages/Home.jsx';
@@ -9,40 +10,10 @@ import { Projects } from "./pages/Projects.jsx";
 import { Education } from "./pages/Education.jsx";
 import { Services } from "./pages/Services.jsx";
 import { Contact } from "./pages/Contact.jsx";
-import { Blocks } from "./Blocks.jsx";
-import { makeRow } from "./utils/rowMaker.jsx";
 
 export const App = () => {
     const location = useLocation()
-    const toast = location.state?.toast
-
-    const stoneRow = (cols) => makeRow(cols, "stone");
-    const planksRow = (cols) => makeRow(cols, "oakplanks");
-    const bedrockRow = (cols) => makeRow(cols, "bedrock");
-
-    return (
-        <div className="app">
-            <Blocks rowsConfig={["birchplanks", planksRow, bedrockRow]} repeatIndex={0}>
-                <div className="pixels">
-                    <div className="pixel"></div>
-                    <div className="pixel"></div>
-                    <div className="pixel"></div>
-                    <div className="pixel"></div>
-                    <div className="pixel"></div>
-                </div>
-                
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-                <h1>Welcome to my Portfolio</h1>
-            </Blocks>
-        </div>
-    );
+    const toast = location.state?.toast;
 
     return (
         <div className="app">
@@ -55,12 +26,71 @@ export const App = () => {
                     <Route path="/projects" element={<Projects />} />
                     <Route path="/education" element={<Education />} />
                     <Route path="/services" element={<Services />} />
-                    <Route path="/contact" element={<Contact />} />
+                    {/* <Route path="/contact" element={<Contact />} /> */}
                     <Route path="*" element={<Home />} />
                 </Routes>
+
+                <Blocks rowsConfig={["birchplanks"]} repeatIndex={0} borderInset={1}>
+                    <div className="pixels">
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                        <div className="pixel"></div>
+                    </div>
+                    
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                    <h1>Welcome to my Portfolio</h1>
+                </Blocks>
             </main>
 
             <Footer />
+        </div>
+    );
+
+    return (
+        <div className="app">
+
+            <main>
+                
+            </main>
+
+            
         </div>
     );
 }
