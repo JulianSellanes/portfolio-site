@@ -1,24 +1,19 @@
 import "./Education.css";
 import { Blocks } from "../components/Blocks.jsx";
-import { PixelCard } from "../components/PixelCard.jsx";
 
-export const Education = () => {
-    const education = [
-        { school: 'Centennial College, Canada', degree: 'Software Systems Design (COMP 246 et al.)', years: '2024–2026' },
-        { school: 'Self‑Directed', degree: 'AWS serverless architecture, React/Vite', years: 'Ongoing' },
-    ];
-
+export const Education = ({ education = [] }) => {
+    
     return (
         <>
             <div className="empty-space" />
 
             <Blocks rowsConfig={["spruceplanks"]}>
                 <div className="education-content">
-                    <h1>Education</h1>
+                    <h2 className="generic-title">Education</h2>
 
                     <div className="timeline">
                         {
-                            education.map((e, index)=> (
+                            education.length > 0 && education.map((e, index)=> (
                                 <div key={index} className="timeline-item">
                                     <p className="timeline-date">{e.years}</p>
                                     <p>{e.school}</p>

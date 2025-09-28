@@ -1,0 +1,52 @@
+.contact-content {
+    padding: 3rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.contact-card {
+    padding: 1.4rem 1.8rem;
+}
+
+.form {
+    padding: 0 0 2rem;
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+}
+
+.name-group {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+}
+
+.contact-input, .contact-textarea {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+
+    outline: none;
+
+    color: var(--white);
+    cursor: pointer;
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+    color: var(--grey-light);
+}
+
+.contact-input:focus-within,
+.contact-textarea:focus-within {
+    border-color: var(--green-light);
+}
+
+.contact-textarea {
+    min-height: 12rem;
+    resize: vertical;
+}

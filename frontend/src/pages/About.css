@@ -1,3 +1,5 @@
+/* Phones */
+
 .about-content {
     padding: 3rem 6rem;
 
@@ -21,26 +23,29 @@
     justify-content: center;
     align-items: center;
     gap: 3rem;
-    /* background-color: blue; */
-}
-
-.about-title {
-    font-size: 1.2rem;
 }
 
 .about-text {
-    /* padding: 0 5rem 0 9rem; */
-
     font-size: 0.9rem;
     line-height: 2;
-
-    /* background-color: red; */
 }
 
-/* Small tablets */
+.about-lists {
+    padding: 3rem;
 
-@media screen and (min-width: 480px) {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
 
+.about-list {
+    padding: 1rem;
+    
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
 }
 
 /* Large tablets */
@@ -49,16 +54,4 @@
     .about-content {
         flex-flow: row nowrap;
     }
-}
-
-/* Laptops */
-
-@media screen and (min-width: 1024px) {
-
-}
-
-/* Desktop */
-
-@media screen and (min-width: 1200px) {
-
 }

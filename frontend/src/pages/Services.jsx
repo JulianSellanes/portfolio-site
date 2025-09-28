@@ -2,24 +2,19 @@ import "./Services.css";
 import { Blocks } from "../components/Blocks.jsx";
 import { PixelCard } from "../components/PixelCard.jsx";
 
-export const Services = () => {
-    const services = [
-        { title: 'Web Development', subtitle: 'React, Vite, Tailwind‑free CSS', img: '/projects/proj1.jpg', techs: ["React", "React", "React", "React", "React", "React"] },
-        { title: 'Backend Development', subtitle: 'API Gateway + Lambda + DynamoDB', img: '/projects/proj2.jpg', techs: ["React", "React", "React", "React", "React", "React"] },
-        { title: 'Game Development', subtitle: 'Canvas effects, pixel polish', img: '/projects/proj3.jpg', techs: ["React", "React", "React", "React", "React", "React"] },
-    ];
-
+export const Services = ({ services = [] }) => {
+    
     return (
         <>
             <div className="empty-space" />
 
             <Blocks rowsConfig={["spruceplanks"]}>
                 <div className="services-content">
-                    <h1>Services</h1>
+                    <h2 className="generic-title">Services</h2>
 
                     <div className="services-cards">
                         {
-                            services.map((s, index)=> (
+                            services.length > 0 && services.map((s, index)=> (
                                 <PixelCard key={index} title={s.title} img={s.img} techs={s.techs}></PixelCard>
                             ))
                         }

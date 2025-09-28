@@ -4,6 +4,7 @@ import { Blocks } from "./Blocks.jsx";
 import { Logo } from "./Logo.jsx";
 
 export const Navbar = () => {
+    // Define middle rows
     const middleRows = { 
         type: "oakplanks", 
         special: (i, cols) => (i === 0 || i === cols - 1 ? "wood" : null),

@@ -8,10 +8,9 @@
     gap: 2rem;
 }
 
-.home-content h3 {
+.home-mission {
     padding: 0 5rem;
     line-height: 2;
-    font-size: 1rem;
 }
 
 .home-bttns-group {
@@ -28,4 +27,22 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+}
+
+.home-last {
+    padding: 3rem;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.last-card {
+    padding: 1.4rem;
+}
+
+.last-card pre {
+    white-space: pre-wrap;
+    line-height: 2;
 }

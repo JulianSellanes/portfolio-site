@@ -1,34 +1,59 @@
 import "./Home.css";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Blocks } from "../components/Blocks.jsx";
 import { PixelCard } from "../components/PixelCard.jsx";
 
-export const Home = () => {
+export const Home = ({ projects = [] }) => {
+    const msg = JSON.parse(localStorage.getItem("lastContact") || "null");
+
     return (
         <>
             <div className="empty-space" />
 
             <Blocks rowsConfig={["spruceplanks"]}>
                 <div className="home-content">
-                    <h1>Welcome to my Portfolio</h1>
-                    <h3>Mission: My mission is to learn as much as I can about software engineering, work as hard as I can and save a lot, so that one day I can start my own company/entrepreneurship ⭐️</h3>
+                    <h1 className="generic-title">Welcome to my Portfolio</h1>
+                    <h3 className="home-mission">Mission: My mission is to learn as much as I can about software engineering, work as hard as I can and save a lot, so that one day I can start my own company/entrepreneurship! :)</h3>
                     
                     <div className="home-bttns-group">
-                        <Link className="green-bttn" to="/about">About Me</Link>
-                        <Link className="green-bttn" to="/projects">Projects</Link>
+                        <Link className="generic-green-box green-bttn" to="/about">About Me</Link>
+                        <Link className="generic-green-box green-bttn" to="/projects">Projects</Link>
                     </div>
                 </div>
             </Blocks>
 
-            <div className="empty-space" />
+            {
+                projects.length > 0 && (
+                <>
+                    <div className="empty-space" />
 
-            <Blocks rowsConfig={["spruceplanks"]}>
-                <div className="home-cards">
-                    <PixelCard title="Title" subtitle="subtitle eefewfwef frewferfgerf refgerg egergerg gerre" img="/projects/proj1.jpg" techs={["React", "AWS", "Lambda", "DynamoDB", "DynamoDB", "DynamoDB", "DynamoDB", "DynamoDB"]} ctaText="Click" ctaHref="#" fixedRows={16}></PixelCard>
-                    <PixelCard title="Title 2" subtitle="subtitle 2" img="/projects/proj1.jpg" ctaText="Click" ctaHref="#" fixedRows={16}></PixelCard>
-                    <PixelCard title="Title 3" subtitle="subtitle 3" img="/projects/proj1.jpg" ctaText="Click" ctaHref="#" fixedRows={16}></PixelCard>
-                </div>
-            </Blocks>
+                    <Blocks rowsConfig={["spruceplanks"]}>
+                        <div className="home-cards">
+                        {
+                            projects.map((p, index)=> (
+                                <PixelCard key={index} title={p.title} subtitle={p.subtitle} img={p.img} techs={p.techs} ctaText="Open" ctaHref={p.link} fixedRows={16}></PixelCard>
+                            ))
+                        }
+                        </div>
+                    </Blocks>
+                </>)
+            }
+
+            {
+                msg && (
+                <>
+                    <div className="empty-space" />
+
+                    <Blocks rowsConfig={["birchplanks"]}>
+                        <div className="home-last">
+                            <div className="generic-green-box last-card">
+                                <h3>Last message received:</h3>
+                                <pre>{JSON.stringify(msg, null, 2)}</pre>
+                            </div>
+                        </div>
+                    </Blocks>
+                </>)
+            }
 
             <div className="empty-space" />
         </>

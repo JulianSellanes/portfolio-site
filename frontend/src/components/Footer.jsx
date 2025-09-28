@@ -7,7 +7,7 @@ export const Footer = () => {
     return (
         <Blocks rowsConfig={["stone", "bedrock"]} repeatIndex={0}>
             <div className="footer-content">
-                <i>© {year} Julian Sellanes</i>
+                <i>© {year} Julián Sellanes</i>
             </div>
         </Blocks>
     );

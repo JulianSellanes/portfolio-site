@@ -1,7 +1,9 @@
 import "./PixelCard.css";
 import { Blocks } from "./Blocks.jsx";
 
+// Card with blocky borders
 export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, fixedCols = 10, fixedRows = null }) => {
+    // Define middle rows
     const middleRows = { 
         type: "stone", 
         special: (i, cols) => (i === 0 || i === cols - 1 ? "obsidian" : null),
@@ -18,14 +20,14 @@ export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, 
                     <div className="card-techs-group">
                         {
                             techs.map((t, index) => (
-                                <div key={index} className="card-tech">{t}</div>
+                                <div key={index} className="generic-green-box card-tech">{t}</div>
                             ))
                         }
                     </div>
                 )}
 
                 {ctaHref && (
-                    <a className="green-bttn" href={ctaHref} target="_blank" rel="noreferrer">{ctaText || "View"}</a>
+                    <a className="generic-green-box green-bttn" href={ctaHref} target="_blank" rel="noreferrer">{ctaText || "View"}</a>
                 )}
             </div>
         </Blocks>
