@@ -1,6 +1,8 @@
 import "./App.css";
+import { useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Navbar } from "./components/Navbar.jsx";
+import { MobileSideModal } from "./components/MobileSideModal.jsx";
 import { Footer } from "./components/Footer.jsx";
 import { Home } from "./pages/Home.jsx";
 import { About } from "./pages/About.jsx";
@@ -33,8 +35,15 @@ export const App = () => {
         { title: "Game Development", img: "/services/unity.png", techs: ["C#", "Shaders", "Python", "Unity", "Blender"] },
     ];
 
+    const [isMobileSideModalOpen, setMobileSideModalOpen] = useState(false);
+
     return (
         <div className="app">
+            {
+                isMobileSideModalOpen && (
+                    <MobileSideModal handleModal={() => setMobileSideModalOpen(!isMobileSideModalOpen)} />
+                )
+            }
             {
                 toast && (
                     <div className="generic-green-box toast">
@@ -42,7 +51,7 @@ export const App = () => {
                     </div>)
             }
 
-            <Navbar />
+            <Navbar handleMobileSideModal={() => setMobileSideModalOpen(!isMobileSideModalOpen)} />
 
             <main>
                 <Routes>

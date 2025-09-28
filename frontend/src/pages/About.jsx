@@ -39,6 +39,7 @@ export const About = () => {
                         <li>C#</li>
                         <li>Java</li>
                         <li>Agile Methodology</li>
+                        <li><i>I don't like vibe coding.<br />I use AI as a tool to learn and fix bugs</i></li>
                     </ul>
                 </div>
             </Blocks>

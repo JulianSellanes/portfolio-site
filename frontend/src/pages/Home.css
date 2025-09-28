@@ -1,5 +1,5 @@
 .home-content {
-    padding: 3rem;
+    padding: 3rem 5rem;
 
     display: flex;
     flex-flow: column nowrap;
@@ -9,7 +9,7 @@
 }
 
 .home-mission {
-    padding: 0 5rem;
+    /* padding: 0 5rem; */
     line-height: 2;
 }
 

@@ -45,7 +45,12 @@
     
     display: flex;
     flex-flow: column nowrap;
-    gap: 1rem;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.about-list li {
+    text-align: center;
 }
 
 /* Large tablets */

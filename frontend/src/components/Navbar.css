@@ -2,24 +2,46 @@
 
 .nav {
     position: sticky;
-    top: -9rem;
-    z-index: 5;
+    top: -3rem;
+    z-index: 2;
 }
 
 .nav-content {
     padding: 2rem 6rem;
 
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
+    justify-content: space-between;
     align-items: center;
 }
 
 .logo {
+    margin-top: 0.3rem;
     display: flex;
 }
 
-.nav-links-group {
+.burger-bttn {
+    width: 7rem;
+    height: 5rem;
+    padding: 0.8rem;
+
     display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+
+    cursor: pointer;
+}
+
+.burger-bttn .line {
+    width: 100%;
+    height: 3px;
+
+    background-color: var(--white);
+    box-shadow: 3px 3px 2px var(--black);
+}
+
+.nav-links-group {
+    display: none;
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
@@ -66,14 +88,22 @@
 
 /* Large tablets */
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 864px) {
     .nav {
         top: 0;
     }
 
-    .nav-content {
+    /* .nav-content {
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
+    } */
+
+    .burger-bttn {
+        display: none;
+    }
+
+    .nav-links-group {
+        display: flex;
     }
 }

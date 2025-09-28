@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Blocks } from "./Blocks.jsx";
 import { Logo } from "./Logo.jsx";
 
-export const Navbar = () => {
+export const Navbar = ({ handleMobileSideModal }) => {
     // Define middle rows
     const middleRows = { 
         type: "oakplanks", 
@@ -17,6 +17,12 @@ export const Navbar = () => {
                     <Link to="/" className="logo">
                         <Logo size={72}/>
                     </Link>
+
+                    <button className="generic-green-box burger-bttn" onClick={handleMobileSideModal}>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
+                    </button>
 
                     <div className="nav-links-group">
                         <NavLink to="/" className={"nav-link"}>Home</NavLink>
