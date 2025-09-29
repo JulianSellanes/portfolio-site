@@ -13,7 +13,7 @@ export const Home = ({ projects = [] }) => {
             <Blocks rowsConfig={["spruceplanks"]}>
                 <div className="home-content">
                     <h1 className="generic-title">Welcome to my Portfolio</h1>
-                    <h3 className="home-mission">Mission: My mission is to learn as much as I can about software engineering, work as hard as I can and save a lot, so that one day I can start my own company/entrepreneurship! :)</h3>
+                    <p className="generic-p">Mission: My mission is to continuously learn and grow as a software engineer, work with dedication, and save diligently, so that one day I can build and lead my own company! :)</p>
                     
                     <div className="home-bttns-group">
                         <Link className="generic-green-box green-bttn" to="/about">About Me</Link>

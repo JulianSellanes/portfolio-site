@@ -74,18 +74,6 @@
     box-shadow: 0 2px 0 var(--green-dark), 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* .nav-link.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 4px;
-
-    background: var(--green-nav);
-    border-bottom: 2px solid var(--green-nav-dark);
-} */
-
 /* Large tablets */
 
 @media screen and (min-width: 800px) {

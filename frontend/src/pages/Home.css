@@ -1,16 +1,11 @@
 .home-content {
-    padding: 3rem 5rem;
+    padding: 3rem;
 
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-}
-
-.home-mission {
-    /* padding: 0 5rem; */
-    line-height: 2;
+    gap: 3rem;
 }
 
 .home-bttns-group {

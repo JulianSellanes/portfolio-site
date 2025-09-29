@@ -14,7 +14,7 @@ export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, 
             <div className="card-content">
                 {img && <img className="card-img" src={img} />}
                 <h4 className="card-title">{title}</h4>
-                {subtitle && <p className="card-subtitle">{subtitle}</p>}
+                {subtitle && <p className="generic-p">{subtitle}</p>}
 
                 {techs.length > 0 && (
                     <div className="card-techs-group">
@@ -27,7 +27,7 @@ export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, 
                 )}
 
                 {ctaHref && (
-                    <a className="generic-green-box green-bttn" href={ctaHref} target="_blank" rel="noreferrer">{ctaText || "View"}</a>
+                    <a className="generic-green-box green-bttn" href={ctaHref} target="_blank" rel="noopener noreferrer">{ctaText || "View"}</a>
                 )}
             </div>
         </Blocks>

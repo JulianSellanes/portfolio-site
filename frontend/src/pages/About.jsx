@@ -15,9 +15,10 @@ export const About = () => {
 
                     <div className="about-group">
                         <h2 className="generic-title">About Me</h2>
-                        <p className="about-text">
-                        Hi, my name is Julián Sellanes. I am a Unionville High School graduate, and I am currently in the Software Engineering program at Centennial College.
-                        My hobbies are coding, drawing, and hit the gym.
+                        <p className="generic-p">
+                        Hi, my name is Julián Sellanes.
+                        I am a Unionville High School graduate, and I am currently in the Software Engineering program at Centennial College.
+                        My hobbies are coding, drawing, chess, and hit the gym.
                         </p>
                         <a className="generic-green-box green-bttn" href="/resume.pdf" download>Download Resume (PDF)</a>
                     </div>
@@ -35,6 +36,7 @@ export const About = () => {
                         <li>Javascript</li>
                         <li>React + Vite</li>
                         <li>Node + Express</li>
+                        <li>AWS</li>
                         <li>Python</li>
                         <li>C#</li>
                         <li>Java</li>

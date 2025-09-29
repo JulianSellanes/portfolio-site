@@ -53,6 +53,10 @@ main {
     text-shadow: 4px 4px 2px var(--black);
 }
 
+.generic-p {
+    line-height: 2;
+}
+
 .green-bttn {
     display: inline-block;
     padding: 1.4rem 1.8rem;

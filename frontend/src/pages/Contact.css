@@ -8,8 +8,31 @@
     gap: 4rem;
 }
 
-.contact-card {
+.contact-card-p {
     padding: 1.4rem 1.8rem;
+
+    display: flex;
+    flex-flow: column wrap;
+    gap: 2rem;
+}
+
+.contact-card-social {
+    padding: 1.4rem 1.8rem;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.social-bttn {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 4rem;
 }
 
 .form {

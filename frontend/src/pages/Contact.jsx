@@ -26,8 +26,15 @@ export const Contact = () => {
                 <div className="contact-content">
                     <h2 className="generic-title">Contact Me</h2>
 
-                    <div className="generic-green-box contact-card">
-                        <p>Email: julian.sellanes@gmail.com · Location: Markham, ON</p>
+                    <div className="generic-green-box contact-card-p">
+                        <p className="generic-p">Email: julian.sellanes@gmail.com</p>
+                        <p className="generic-p">Location: Markham, ON</p>
+                    </div>
+
+                    <div className="generic-green-box contact-card-social">
+                        <a className="generic-green-box green-bttn social-bttn" href="https://github.com/JulianSellanes/" target="_blank" rel="noopener noreferrer"><span className="fa-brands fa-github"></span></a>
+                        <a className="generic-green-box green-bttn social-bttn" href="https://www.linkedin.com/in/juliansellanes/" target="_blank" rel="noopener noreferrer"><span className="fa-brands fa-linkedin"></span></a>
+                        <a className="generic-green-box green-bttn social-bttn" href="https://www.youtube.com/@NoaDev" target="_blank" rel="noopener noreferrer"><span className="fa-brands fa-youtube"></span></a>
                     </div>
 
                     <form className="form" onSubmit={onSubmit}>
