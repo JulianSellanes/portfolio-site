@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Blocks } from "../components/Blocks.jsx";
 import { PixelCard } from "../components/PixelCard.jsx";
 
-export const Home = ({ projects = [] }) => {
+export const Home = ({ user, projects = [] }) => {
     const msg = JSON.parse(localStorage.getItem("lastContact") || "null");
 
     return (
@@ -13,6 +13,7 @@ export const Home = ({ projects = [] }) => {
             <Blocks rowsConfig={["spruceplanks"]}>
                 <div className="home-content">
                     <h1 className="generic-title">Welcome to my Portfolio</h1>
+                    {user && <p className="generic-p">I hope you have a good day, {user.username}!</p>}
                     <p className="generic-p">Mission: My mission is to continuously learn and grow as a software engineer, work with dedication, and save diligently, so that one day I can build and lead my own company! :)</p>
                     
                     <div className="home-bttns-group">
@@ -23,7 +24,7 @@ export const Home = ({ projects = [] }) => {
             </Blocks>
 
             {
-                projects.length > 0 && (
+                user && projects.length > 0 && (
                 <>
                     <div className="empty-space" />
 
@@ -31,7 +32,7 @@ export const Home = ({ projects = [] }) => {
                         <div className="home-cards">
                         {
                             projects.map((p, index)=> (
-                                <PixelCard key={index} title={p.title} subtitle={p.subtitle} img={p.img} techs={p.techs} ctaText="Open" ctaHref={p.link} fixedRows={16}></PixelCard>
+                                <PixelCard key={index} title={p.title} subtitle={p.description} img={p.image} techs={p.tags} ctaText="Open" ctaHref={p.link} fixedRows={16} ></PixelCard>
                             ))
                         }
                         </div>

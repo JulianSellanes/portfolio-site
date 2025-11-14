@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Blocks } from "./Blocks.jsx";
 import { Logo } from "./Logo.jsx";
 
-export const Navbar = ({ handleMobileSideModal }) => {
+export const Navbar = ({ handleMobileSideModal, user, handleLogout }) => {
     // Define middle rows
     const middleRows = { 
         type: "oakplanks", 
@@ -31,6 +31,14 @@ export const Navbar = ({ handleMobileSideModal }) => {
                         <NavLink to="/education" className={"nav-link"}>Education</NavLink>
                         <NavLink to="/services" className={"nav-link"}>Services</NavLink>
                         <NavLink to="/contact" className={"nav-link"}>Contact</NavLink>
+                        {user ? (
+                            <NavLink to="/logout" className={"nav-link"} onClick={handleLogout}>Logout</NavLink>
+                        ) : (
+                            <>
+                                <NavLink to="/login" className={"nav-link"}>Login</NavLink>
+                                <NavLink to="/register" className={"nav-link"}>Register</NavLink>
+                            </>
+                        )}
                     </div>
                 </div>
             </Blocks>

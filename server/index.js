@@ -12,6 +12,7 @@ import projectRoutes from "./routes/project.js";
 import userRoutes from "./routes/user.js";
 import contactRoutes from "./routes/contact.js";
 import educationRoutes from "./routes/education.js";
+import authRoutes from "./routes/auth.js";
 
 const app = express();
 app.use(express.json());
@@ -21,6 +22,7 @@ app.use("/api/projects", projectRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/api/education", educationRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 
 // app.get("/", (req, res) => {
 //     res.json({ message: "Welcome to My Portfolio application." });

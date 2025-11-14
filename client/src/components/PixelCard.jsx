@@ -2,7 +2,7 @@ import "./PixelCard.css";
 import { Blocks } from "./Blocks.jsx";
 
 // Card with blocky borders
-export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, fixedCols = 10, fixedRows = null }) => {
+export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, fixedCols = 10, fixedRows = null, user, handleUpdate, handleDelete }) => {
     // Define middle rows
     const middleRows = { 
         type: "stone", 
@@ -28,6 +28,13 @@ export const PixelCard = ({ title, subtitle, img, techs = [], ctaText, ctaHref, 
 
                 {ctaHref && (
                     <a className="generic-green-box green-bttn" href={ctaHref} target="_blank" rel="noopener noreferrer">{ctaText || "View"}</a>
+                )}
+
+                {handleUpdate && handleDelete && user && user.role === "admin" && (
+                    <div className="home-bttns-group">
+                        <button className="generic-green-box green-bttn" onClick={handleUpdate}>Edit</button>
+                        <button className="generic-green-box green-bttn" onClick={handleDelete}>Delete</button>
+                    </div>
                 )}
             </div>
         </Blocks>

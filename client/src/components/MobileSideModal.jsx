@@ -3,7 +3,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Blocks } from "./Blocks.jsx";
 
-export const MobileSideModal = ({ handleModal }) => {
+export const MobileSideModal = ({ handleModal, user, handleLogout }) => {
     const [isClosing, setIsClosing] = useState(false);
 
     const closeModal = () => {
@@ -32,6 +32,14 @@ export const MobileSideModal = ({ handleModal }) => {
                             <NavLink to="/education" className={"nav-link"}>Education</NavLink>
                             <NavLink to="/services" className={"nav-link"}>Services</NavLink>
                             <NavLink to="/contact" className={"nav-link"}>Contact</NavLink>
+                            {user ? (
+                                <NavLink to="/logout" className={"nav-link"} onClick={handleLogout}>Logout</NavLink>
+                            ) : (
+                                <>
+                                    <NavLink to="/login" className={"nav-link"}>Login</NavLink>
+                                    <NavLink to="/register" className={"nav-link"}>Register</NavLink>
+                                </>
+                            )}
                         </div>
                     </Blocks>
                 </div>
