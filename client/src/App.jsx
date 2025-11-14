@@ -9,18 +9,20 @@ import { About } from "./pages/About.jsx";
 import { Projects } from "./pages/Projects.jsx";
 import { ProjectDetails } from "./pages/details/ProjectDetails.jsx";
 import { Education } from "./pages/Education.jsx";
+import { EducationDetails } from "./pages/details/EducationDetails.jsx";
 import { Services } from "./pages/Services.jsx";
+import { ServiceDetails } from "./pages/details/ServiceDetails.jsx";
 import { Contact } from "./pages/Contact.jsx";
 import { Login } from "./pages/auth/Login.jsx";
 import { Register } from "./pages/auth/Register.jsx";
-import { getProjects } from "./utils/api.js";
+import { getProjects, getEducations, getServices } from "./utils/api.js";
 
 export const App = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const toast = location.state?.toast;
 
-    // Data
+    // Old Data
     const projectsOLD = [
         { title: "Green Fits Site", description: "A web for searching videos from youtuber Green Fits. Role: Lead Developer", img: "/projects/proj1.png", techs: ["React", "AWS", "Lambda", "S3", "API Gateway", "Dynamodb"], link: "https://www.greenfitsite.com/" },
         { title: "Adventure Time Card Wars [WIP]", description: "Card Wars Adventure Time TCG multiplayer game. Role: Lead Developer", img: "/projects/proj2.png", techs: ["Unity", "C#", "WebSockets", "TCP/UDP"], link: "https://noa-dev.itch.io/cardwars-duels" },
@@ -51,6 +53,8 @@ export const App = () => {
     const [isMobileSideModalOpen, setMobileSideModalOpen] = useState(false);
     const [user, setUser] = useState(getUserFromStorage());
     const [projects, setProjects] = useState([]);
+    const [education, setEducation] = useState([]);
+    const [services, setServices] = useState([]);
     
     useEffect(() => {
         setUser(getUserFromStorage());
@@ -69,6 +73,8 @@ export const App = () => {
             localStorage.removeItem("role");
             setUser(null);
             setProjects([]);
+            setEducation([]);
+            setServices([]);
         } catch (error) {
             console.error("Logout error:", error);
         }
@@ -79,8 +85,20 @@ export const App = () => {
         if (data) setProjects(data);
     }
 
+    const fetchEducation = async () => {
+        const data = await getEducations();
+        if (data) setEducation(data);
+    }
+
+    const fetchServices = async () => {
+        const data = await getServices();
+        if (data) setServices(data);
+    }
+
     useEffect(() => {
-        fetchProjects();
+        // fetchProjects();
+        // fetchEducation();
+        // fetchServices();
     }, [navigate]);
 
     return (
@@ -101,16 +119,18 @@ export const App = () => {
 
             <main>
                 <Routes>
-                    <Route path="/" element={<Home user={user} projects={projects} />} />
+                    <Route path="/" element={<Home user={user} projects={projectsOLD} />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<Projects user={user} projects={projects} refreshProjects={fetchProjects} />} />
+                    <Route path="/projects" element={<Projects user={user} projects={projectsOLD} refreshProjects={fetchProjects} />} />
                     <Route path="/project-details/:id?" element={<ProjectDetails refreshProjects={fetchProjects} />} />
-                    <Route path="/education" element={<Education education={educationOLD} />} />
-                    <Route path="/services" element={<Services services={servicesOLD} />} />
+                    <Route path="/education" element={<Education user={user} education={educationOLD} refreshEducation={fetchEducation} />} />
+                    <Route path="/education-details/:id?" element={<EducationDetails refreshEducation={fetchEducation} />} />
+                    <Route path="/services" element={<Services user={user} services={servicesOLD} refreshServices={fetchServices} />} />
+                    <Route path="/service-details/:id?" element={<ServiceDetails refreshServices={fetchServices} />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<Login setUser={setUser} />} />
                     <Route path="/register" element={<Register setUser={setUser} />} />
-                    <Route path="*" element={<Home user={user} projects={projects} />} />
+                    <Route path="*" element={<Home user={user} projects={projectsOLD} />} />
                 </Routes>
             </main>
 

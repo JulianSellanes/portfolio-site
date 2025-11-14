@@ -42,7 +42,7 @@ export const Projects = ({user, projects = [], refreshProjects }) => {
                         {
                             projects.length > 0 ? (
                                 projects.map((p, index) => (
-                                    <PixelCard key={index} title={p.title} subtitle={p.description} img={p.image} techs={p.tags} ctaText="Open" ctaHref={p.link} fixedRows={16} user={user} handleUpdate={() => handleUpdateProject(p._id)} handleDelete={() => handleDeleteProject(p._id)}></PixelCard>
+                                    <PixelCard key={index} title={p.title} subtitle={p.description} img={p.img} techs={p.tags} ctaText="Open" ctaHref={p.link} fixedRows={16} user={user} handleUpdate={() => handleUpdateProject(p._id)} handleDelete={() => handleDeleteProject(p._id)}></PixelCard>
                                 ))
                             ) : (
                                 <div className="generic-green-box contact-card-p">

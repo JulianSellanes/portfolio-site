@@ -14,7 +14,7 @@ import {
 const router = express.Router();
 
 // HTTP Verbs for RESTful APIs GET, POST, PUT, DELETE
-router.get("/", authMiddleware, adminOnly, getAllContacts);
+router.get("/", getAllContacts);
 router.get("/:id", authMiddleware, adminOnly, getContactById);
 router.post("/", authMiddleware, createContact);
 router.put("/:id", authMiddleware, adminOnly, updateContactById);

@@ -12,6 +12,7 @@ import projectRoutes from "./routes/project.js";
 import userRoutes from "./routes/user.js";
 import contactRoutes from "./routes/contact.js";
 import educationRoutes from "./routes/education.js";
+import serviceRoutes from "./routes/service.js";
 import authRoutes from "./routes/auth.js";
 
 const app = express();
@@ -21,6 +22,7 @@ app.use(morgan("dev"));
 app.use("/api/projects", projectRoutes);
 app.use("/api/contacts", contactRoutes);
 app.use("/api/education", educationRoutes);
+app.use("/api/services", serviceRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
 

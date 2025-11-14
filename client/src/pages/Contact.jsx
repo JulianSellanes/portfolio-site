@@ -2,6 +2,7 @@ import "./Contact.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Blocks } from "../components/Blocks.jsx";
+import { createContact } from "../utils/api.js";
 
 export const Contact = () => {
     const [form, setForm] = useState({ firstName: "", lastName: "", phone: "", email: "", message: "" });
@@ -12,10 +13,13 @@ export const Contact = () => {
         setForm(prev => ({ ...prev, [name]: value }));
     }
 
-    function onSubmit(e) {
+    async function onSubmit(e) {
         e.preventDefault();
-        localStorage.setItem("lastContact", JSON.stringify({ ...form, ts: new Date().toISOString() }));
-        navigate("/", { state: { toast: `I received your message, ${form.firstName}. I’ll reply soon!` } });
+        const data = await createContact(form);
+        if (data) {
+            localStorage.setItem("lastContact", JSON.stringify({ ...form, ts: new Date().toISOString() }));
+            navigate("/", { state: { toast: `I received your message, ${form.firstName}. I'll reply soon!` } });
+        }
     }
 
     return (
@@ -39,13 +43,13 @@ export const Contact = () => {
 
                     <form className="form" onSubmit={onSubmit}>
                         <div className="name-group">
-                            <input className="generic-green-box contact-input" name="firstName" placeholder="First Name" value={form.firstName} onChange={onChange} required />
-                            <input className="generic-green-box contact-input" name="lastName" placeholder="Last Name" value={form.lastName} onChange={onChange} required />
+                            <input className="generic-green-box contact-input" name="firstName" type="text" placeholder="First Name" value={form.firstName} onChange={onChange} required />
+                            <input className="generic-green-box contact-input" name="lastName" type="text" placeholder="Last Name" value={form.lastName} onChange={onChange} required />
                         </div>
 
-                        <input className="generic-green-box contact-input" name="phone" placeholder="Contact Number" value={form.phone} onChange={onChange} />
+                        <input className="generic-green-box contact-input" name="phone" type="text" placeholder="Contact Number" value={form.phone} onChange={onChange} />
                         <input className="generic-green-box contact-input" name="email" type="email" placeholder="Email Address" value={form.email} onChange={onChange} required />
-                        <textarea className="generic-green-box contact-textarea" name="message" placeholder="Message" value={form.message} onChange={onChange} required />
+                        <textarea className="generic-green-box contact-textarea" name="message" type="text" placeholder="Message" value={form.message} onChange={onChange} required />
 
                         <button className="generic-green-box green-bttn" type="submit">Send</button>
                     </form>

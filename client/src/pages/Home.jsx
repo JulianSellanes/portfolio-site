@@ -24,7 +24,7 @@ export const Home = ({ user, projects = [] }) => {
             </Blocks>
 
             {
-                user && projects.length > 0 && (
+                projects.length > 0 && (
                 <>
                     <div className="empty-space" />
 
@@ -32,7 +32,7 @@ export const Home = ({ user, projects = [] }) => {
                         <div className="home-cards">
                         {
                             projects.map((p, index)=> (
-                                <PixelCard key={index} title={p.title} subtitle={p.description} img={p.image} techs={p.tags} ctaText="Open" ctaHref={p.link} fixedRows={16} ></PixelCard>
+                                <PixelCard key={index} title={p.title} subtitle={p.description} img={p.img} techs={p.tags} ctaText="Open" ctaHref={p.link} fixedRows={16} ></PixelCard>
                             ))
                         }
                         </div>
