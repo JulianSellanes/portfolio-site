@@ -15,8 +15,11 @@ export const Contact = () => {
 
     async function onSubmit(e) {
         e.preventDefault();
-        const data = await createContact(form);
-        if (data) {
+        
+        try {
+            const data = await createContact(form);
+            if (!data) console.warn("No data from createContact");
+        } finally {
             localStorage.setItem("lastContact", JSON.stringify({ ...form, ts: new Date().toISOString() }));
             navigate("/", { state: { toast: `I received your message, ${form.firstName}. I'll reply soon!` } });
         }
