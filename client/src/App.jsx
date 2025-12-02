@@ -96,9 +96,9 @@ export const App = () => {
     }
 
     useEffect(() => {
-        // fetchProjects();
-        // fetchEducation();
-        // fetchServices();
+        fetchProjects();
+        fetchEducation();
+        fetchServices();
     }, [navigate]);
 
     return (
@@ -119,18 +119,18 @@ export const App = () => {
 
             <main>
                 <Routes>
-                    <Route path="/" element={<Home user={user} projects={projectsOLD} />} />
+                    <Route path="/" element={<Home user={user} projects={projects} />} />
                     <Route path="/about" element={<About />} />
-                    <Route path="/projects" element={<Projects user={user} projects={projectsOLD} refreshProjects={fetchProjects} />} />
+                    <Route path="/projects" element={<Projects user={user} projects={projects} refreshProjects={fetchProjects} />} />
                     <Route path="/project-details/:id?" element={<ProjectDetails refreshProjects={fetchProjects} />} />
-                    <Route path="/education" element={<Education user={user} education={educationOLD} refreshEducation={fetchEducation} />} />
+                    <Route path="/education" element={<Education user={user} education={education} refreshEducation={fetchEducation} />} />
                     <Route path="/education-details/:id?" element={<EducationDetails refreshEducation={fetchEducation} />} />
-                    <Route path="/services" element={<Services user={user} services={servicesOLD} refreshServices={fetchServices} />} />
+                    <Route path="/services" element={<Services user={user} services={services} refreshServices={fetchServices} />} />
                     <Route path="/service-details/:id?" element={<ServiceDetails refreshServices={fetchServices} />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/login" element={<Login setUser={setUser} />} />
                     <Route path="/register" element={<Register setUser={setUser} />} />
-                    <Route path="*" element={<Home user={user} projects={projectsOLD} />} />
+                    <Route path="*" element={<Home user={user} projects={projects} />} />
                 </Routes>
             </main>
 
