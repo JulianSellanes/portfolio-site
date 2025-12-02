@@ -76,7 +76,7 @@
 
 /* Large tablets */
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1120px) {
     .nav {
         top: 0;
     }
