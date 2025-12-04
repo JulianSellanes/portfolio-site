@@ -28,11 +28,11 @@ export const Projects = ({user, projects = [], refreshProjects }) => {
                 <div className="projects-content">
                     <h2 className="generic-title">Projects</h2>
 
-                    {!user && (
+                    {/* {!user && (
                         <div className="generic-green-box contact-card-p">
                             <p className="generic-p">You need to login to see the projects</p>
                         </div>
-                    )}
+                    )} */}
 
                     {user && user.role === "admin" && (
                         <button className="generic-green-box green-bttn" onClick={handleCreateProject}>Create Project</button>

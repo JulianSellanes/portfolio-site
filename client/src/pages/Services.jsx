@@ -28,11 +28,11 @@ export const Services = ({user, services = [], refreshServices }) => {
                 <div className="services-content">
                     <h2 className="generic-title">Services</h2>
 
-                    {!user && (
+                    {/* {!user && (
                         <div className="generic-green-box contact-card-p">
                             <p className="generic-p">You need to login to see the services</p>
                         </div>
-                    )}
+                    )} */}
 
                     {user && user.role === "admin" && (
                         <button className="generic-green-box green-bttn" onClick={handleCreateService}>Create Service</button>

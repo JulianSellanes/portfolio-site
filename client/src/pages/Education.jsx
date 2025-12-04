@@ -27,11 +27,11 @@ export const Education = ({user, education = [], refreshEducation }) => {
                 <div className="education-content">
                     <h2 className="generic-title">Education</h2>
 
-                    {!user && (
+                    {/* {!user && (
                         <div className="generic-green-box contact-card-p">
                             <p className="generic-p">You need to login to see the education</p>
                         </div>
-                    )}
+                    )} */}
 
                     {user && user.role === "admin" && (
                         <button className="generic-green-box green-bttn" onClick={handleCreateEducation}>Create Education</button>
